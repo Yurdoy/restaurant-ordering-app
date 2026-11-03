@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Smythe", sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  background-image: url("./images/header-bg.svg");
+  background-size: cover;
+  background-position: center;
+  min-height: 167px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.header-text {
+  padding: 46px;
+}
+
+.header-title {
+  font-size: 39px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.header-description {
+  margin-top: 19px;
+  font-size: 22px;
+  line-height: 1.4;
+}
