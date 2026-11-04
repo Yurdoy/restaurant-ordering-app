@@ -34,3 +34,59 @@ body {
   font-size: 22px;
   line-height: 1.4;
 }
+
+.menu {
+  padding: 22px 46px 0 46px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: start;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 40px;
+  padding: 5px 0 51px 0;
+  gap: 31px;
+}
+
+.menu-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-item__title {
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.menu-item__description {
+  font-size: 16px;
+  line-height: 24px;
+  color: #8b8b8b;
+  font-weight: 400;
+}
+
+.menu-item__price {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.menu-item__button {
+  all: unset;
+  display: inline-flex;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+
+.menu-item__button:hover,
+.menu-item__button:focus-visible {
+  transform: translateY(4px);
+}
+
+.menu-item__button:focus-visible {
+  outline: 2px solid darkorange;
+  outline-offset: 2px;
+}
