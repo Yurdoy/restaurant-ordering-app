@@ -1,5 +1,24 @@
 import { menuArray } from "./data.js";
 
+let orderArray = [];
+
+document.addEventListener("click", function (e) {
+  const addBtn = e.target.closest("[data-add]");
+
+  if (addBtn) {
+    handleAddClick(addBtn.dataset.add);
+  }
+});
+
+function handleAddClick(id) {
+  const menuItemId = Number(id);
+  console.log(menuItemId, typeof menuItemId);
+  const menuItem = menuArray.find((item) => item.id === menuItemId);
+  console.log(menuItem);
+  orderArray.push(menuItem);
+  console.log(orderArray);
+}
+
 function getMenuHtml() {
   const menuArrayItems = menuArray.map((item) => {
     return `
