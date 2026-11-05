@@ -48,6 +48,14 @@ body {
   gap: 31px;
 }
 
+.menu-item__emoji {
+  font-size: 90px;
+  width: 90px;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 1;
+}
+
 .menu-item__info {
   display: flex;
   flex-direction: column;
