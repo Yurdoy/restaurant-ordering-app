@@ -20,26 +20,26 @@
       </div>
     </header>
     <main class="main">
-      <section class="menu">
-        <!-- <article class="menu-item">
-          <img
-            src="./images/menu-pizza.svg"
-            alt=""
-            class="menu-item__img"
-            width="70"
-            height="89"
-          />
-          <div class="menu-item__info">
-            <h2 class="menu-item__title">Pizza</h2>
-            <p class="menu-item__description">
-              pepperoni, mushroom, mozzarella
-            </p>
-            <p class="menu-item__price">$14</p>
-          </div>
-          <button class="menu-item__button" aria-label="Add pizza to order">
-            <img src="./images/add-btn.svg" alt="" width="50" height="50" />
-          </button>
-        </article> -->
+      <section class="menu"></section>
+      <section class="order">
+        <h2 class="order__title">Your order</h2>
+        <ul class="order__list">
+          <li class="order__item">
+            <p class="order__name">Pizza</p>
+            <button class="order__remove">remove</button>
+            <p class="order__price">$14</p>
+          </li>
+          <li class="order__item">
+            <p class="order__name">Beer</p>
+            <button class="order__remove">remove</button>
+            <p class="order__price">$12</p>
+          </li>
+        </ul>
+        <div class="order__total">
+          <p class="order__total-price-title">Total price:</p>
+          <p class="order__total-price">$26</p>
+        </div>
+        <button class="order__complete-button">Complete order</button>
       </section>
     </main>
     <script src="index.js" type="module"></script>
