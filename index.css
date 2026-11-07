@@ -187,3 +187,7 @@ body {
   outline: 2px solid darkorange;
   outline-offset: 2px;
 }
+
+.hidden {
+  display: none;
+}

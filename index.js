@@ -4,19 +4,27 @@ let orderArray = [];
 
 document.addEventListener("click", function (e) {
   const addBtn = e.target.closest("[data-add]");
-
   if (addBtn) {
     handleAddClick(addBtn.dataset.add);
+  }
+
+  const removeBtn = e.target.closest("[data-remove]");
+  if (removeBtn) {
+    handleRemoveClick(removeBtn.dataset.remove);
   }
 });
 
 function handleAddClick(id) {
   const menuItemId = Number(id);
-  console.log(menuItemId, typeof menuItemId);
   const menuItem = menuArray.find((item) => item.id === menuItemId);
-  console.log(menuItem);
   orderArray.push(menuItem);
-  console.log(orderArray);
+  renderOrder();
+}
+
+function handleRemoveClick(index) {
+  const orderItemIndex = Number(index);
+  orderArray.splice(orderItemIndex, 1);
+  renderOrder();
 }
 
 function getMenuHtml() {
@@ -38,6 +46,33 @@ function getMenuHtml() {
   `;
   });
   return menuArrayItems.join("");
+}
+
+function getOrderHtml() {
+  const orderList = orderArray.map((item, index) => {
+    return `
+     <li class="order__item">
+       <p class="order__name">${item.name}</p>
+       <button class="order__remove" aria-label="Remove ${item.name} from order" data-remove="${index}">remove</button>
+       <p class="order__price">$${item.price}</p>
+     </li>
+     `;
+  });
+  return orderList.join("");
+}
+
+function getTotalPrice() {
+  return orderArray.reduce((acc, curr) => acc + curr.price, 0);
+}
+
+function renderOrder() {
+  document
+    .querySelector(".order")
+    .classList.toggle("hidden", orderArray.length === 0);
+  document.querySelector(".order__list").innerHTML = getOrderHtml();
+
+  document.querySelector(".order__total-price").textContent =
+    "$" + getTotalPrice();
 }
 
 function render() {
