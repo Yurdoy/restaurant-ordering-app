@@ -23,18 +23,56 @@
       <section class="menu"></section>
       <section class="order hidden">
         <h2 class="order__title">Your order</h2>
-        <ul class="order__list">
-          <!-- <li class="order__item">
-            <p class="order__name">Pizza</p>
-            <button class="order__remove">remove</button>
-            <p class="order__price">$14</p>
-          </li> -->
-        </ul>
+        <ul class="order__list"></ul>
         <div class="order__total">
           <p class="order__total-price-title">Total price:</p>
           <p class="order__total-price">$0</p>
         </div>
         <button class="order__complete-button">Complete order</button>
+      </section>
+      <section class="modal hidden">
+        <h2 class="modal__title">Enter card details</h2>
+        <form class="modal__form">
+          <label class="visually-hidden" for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            class="modal__input"
+            name="name"
+            placeholder="Enter your name"
+            autocomplete="cc-name"
+            required
+          />
+          <label class="visually-hidden" for="card">Card number</label>
+          <input
+            type="text"
+            inputmode="numeric"
+            id="card"
+            class="modal__input"
+            name="card"
+            placeholder="Enter card number"
+            autocomplete="cc-number"
+            pattern="\d{13,19}"
+            maxlength="19"
+            title="13 to 19 digits"
+            required
+          />
+          <label class="visually-hidden" for="cvv">CVV</label>
+          <input
+            type="text"
+            inputmode="numeric"
+            id="cvv"
+            class="modal__input"
+            name="cvv"
+            placeholder="Enter CVV"
+            autocomplete="cc-csc"
+            pattern="\d{3,4}"
+            maxlength="4"
+            title="3 to 4 digits"
+            required
+          />
+          <button class="modal__btn" type="submit">Pay</button>
+        </form>
       </section>
     </main>
     <script src="index.js" type="module"></script>
