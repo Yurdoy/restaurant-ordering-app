@@ -260,6 +260,17 @@ body {
   outline-offset: 2px;
 }
 
+.complete-order {
+  background-color: #ecfdf5;
+  text-align: center;
+  color: #065f46;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-top: 45px;
+  padding: 51px 0;
+}
+
 .hidden {
   display: none;
 }

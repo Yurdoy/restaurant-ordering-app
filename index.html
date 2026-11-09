@@ -28,7 +28,9 @@
           <p class="order__total-price-title">Total price:</p>
           <p class="order__total-price">$0</p>
         </div>
-        <button class="order__complete-button">Complete order</button>
+        <button class="order__complete-button" data-complete="">
+          Complete order
+        </button>
       </section>
       <section class="modal hidden">
         <h2 class="modal__title">Enter card details</h2>
@@ -74,6 +76,7 @@
           <button class="modal__btn" type="submit">Pay</button>
         </form>
       </section>
+      <section class="complete-order hidden" role="status"></section>
     </main>
     <script src="index.js" type="module"></script>
   </body>

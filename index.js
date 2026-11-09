@@ -1,5 +1,9 @@
 import { menuArray } from "./data.js";
 
+const completeOrderSection = document.querySelector(".complete-order");
+const modal = document.querySelector(".modal");
+const modalForm = document.querySelector(".modal__form");
+
 let orderArray = [];
 
 document.addEventListener("click", function (e) {
@@ -12,18 +16,44 @@ document.addEventListener("click", function (e) {
   if (removeBtn) {
     handleRemoveClick(removeBtn.dataset.remove);
   }
+
+  const completeBtn = e.target.closest("[data-complete]");
+  if (completeBtn) {
+    handleCompleteOrder();
+  }
+});
+
+modalForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const customerName = new FormData(modalForm).get("name");
+  handlePayment(customerName);
 });
 
 function handleAddClick(id) {
   const menuItemId = Number(id);
   const menuItem = menuArray.find((item) => item.id === menuItemId);
   orderArray.push(menuItem);
+  completeOrderSection.classList.add("hidden");
   renderOrder();
 }
 
 function handleRemoveClick(index) {
   const orderItemIndex = Number(index);
   orderArray.splice(orderItemIndex, 1);
+  renderOrder();
+}
+
+function handleCompleteOrder() {
+  modal.classList.remove("hidden");
+  document.querySelector("#name").focus();
+}
+
+function handlePayment(customerName) {
+  orderArray = [];
+  modal.classList.add("hidden");
+  modalForm.reset();
+  completeOrderSection.classList.remove("hidden");
+  completeOrderSection.textContent = `Thanks, ${customerName}! Your order is on its way!`;
   renderOrder();
 }
 
