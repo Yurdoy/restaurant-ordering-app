@@ -4,7 +4,7 @@ A mobile-first restaurant ordering app built with vanilla JavaScript.
 Users can browse the menu, add and remove items, see the total price,
 and complete the order through a payment form with validation.
 
-**[Live demo](https://ссылка-на-netlify)**
+**[Live demo](https://jimmys-diner-yurdoy.netlify.app)**
 
 ![Menu of Jimmy's Diner](./screenshots/menu.png)
 ![Order with total price](./screenshots/order.png)
