@@ -1,4 +1,5 @@
 import { menuArray } from "./data.js";
+import addBtnUrl from "./images/add-btn.svg";
 
 const completeOrderSection = document.querySelector(".complete-order");
 const modal = document.querySelector(".modal");
@@ -70,7 +71,7 @@ function getMenuHtml() {
             <p class="menu-item__price">$${item.price}</p>
           </div>
           <button class="menu-item__button" aria-label="Add ${item.name} to order" data-add="${item.id}">
-            <img src="./images/add-btn.svg" alt="" width="50" height="50" />
+            <img src="${addBtnUrl}" alt="" width="50" height="50" />
           </button>
         </article>
   `;
