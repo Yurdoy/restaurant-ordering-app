@@ -1,19 +1,52 @@
-# Getting Started
-Install the dependencies and run the project
-```
+# Jimmy's Diner — Restaurant Ordering App
+
+A mobile-first restaurant ordering app built with vanilla JavaScript.
+Users can browse the menu, add and remove items, see the total price,
+and complete the order through a payment form with validation.
+
+**[Live demo](https://ссылка-на-netlify)**
+
+![Menu of Jimmy's Diner](./screenshots/menu.png)
+![Order with total price](./screenshots/order.png)
+
+## Features
+
+- Menu rendered dynamically from a data file
+- Add items to the order and remove them individually
+- Total price calculated automatically
+- Order section appears and hides depending on its contents
+- Payment modal with required fields and format validation
+- Personalized confirmation message after payment
+- Keyboard accessible: visible focus styles, labelled buttons,
+  screen-reader announcements
+
+## Built with
+
+- HTML5 (semantic markup)
+- CSS3 (Flexbox, BEM naming)
+- JavaScript (ES6 modules)
+- Vite
+
+## What I learned
+
+- Used event delegation with `closest()` and data attributes to handle clicks on dynamically rendered buttons with a single listener.
+- Learned that `dataset` values are always strings, since HTML attributes are plain text, and converted them with `Number()` before comparing with numeric IDs.
+- Practiced array methods in a real context: `map()` to render HTML, `find()` to look up menu items by ID, `splice()` to remove a single order item by index, and `reduce()` to calculate the total.
+- Kept the order array as the single source of truth: every action updates the data first, then re-renders the order list, total, and visibility from it.
+- Used `classList.toggle()` with a condition to show or hide the order section based on the data, and learned when it doesn’t fit: the confirmation message depends on an event (payment), not on the data, so it needs explicit `add/remove`.
+- Handled the payment form with the `submit` event instead of a button click, so built-in validation (`required`, `pattern`) runs first; used `preventDefault()` to stop the page reload and `FormData` to read the customer’s name.
+- Made the app keyboard and screen-reader friendly: descriptive `aria-labels` on icon buttons, visible `:focus-visible` styles, visually hidden form labels, a `role="status"` confirmation message, and moving focus into the payment modal when it opens.
+
+## Running locally
+
+```bash
+git clone git@github.com:Yurdoy/restaurant-ordering-app.git
+cd restaurant-ordering-app
 npm install
-npm start
+npm run dev
 ```
 
-Head over to https://vitejs.dev/ to learn more about configuring vite
-## About Scrimba
+## Credits
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Fullstack Developer Path aims to teach you everything you need to become a Junior Developer, or you could go further with one of our advanced courses 🚀
-
-- [Our courses](https://scrimba.com/courses)
-- [The Frontend Career Path](https://scrimba.com/fullstack-path-c0fullstack)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
-
-Happy Coding!
+Design and project brief by [Scrimba](https://scrimba.com)
+as part of the Frontend Developer Career Path.

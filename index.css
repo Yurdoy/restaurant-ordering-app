@@ -271,6 +271,16 @@ body {
   padding: 51px 0;
 }
 
+@media (width <= 395px) {
+  .menu-item {
+    gap: 12px;
+  }
+  .menu-item__emoji {
+    font-size: 55px;
+    width: 55px;
+  }
+}
+
 .hidden {
   display: none;
 }
