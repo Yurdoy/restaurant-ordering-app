@@ -6,8 +6,10 @@ and complete the order through a payment form with validation.
 
 **[Live demo](https://jimmys-diner-yurdoy.netlify.app)**
 
-![Menu of Jimmy's Diner](./screenshots/menu.png)
-![Order with total price](./screenshots/order.png)
+<p>
+  <img src="./screenshots/menu.png" alt="Menu of Jimmy's Diner" width="300">
+  <img src="./screenshots/order.png" alt="Order with total price" width="300">
+</p>
 
 ## Features
 
@@ -19,13 +21,15 @@ and complete the order through a payment form with validation.
 - Personalized confirmation message after payment
 - Keyboard accessible: visible focus styles, labelled buttons,
   screen-reader announcements
+- Lighthouse: Accessibility 100, Best Practices 100, SEO 100
 
 ## Built with
 
 - HTML5 (semantic markup)
-- CSS3 (Flexbox, BEM naming)
+- CSS3: Flexbox, BEM, custom properties, media queries
 - JavaScript (ES6 modules)
 - Vite
+- Netlify (deploy)
 
 ## What I learned
 
@@ -40,7 +44,7 @@ and complete the order through a payment form with validation.
 ## Running locally
 
 ```bash
-git clone git@github.com:Yurdoy/restaurant-ordering-app.git
+git clone https://github.com/Yurdoy/restaurant-ordering-app.git
 cd restaurant-ordering-app
 npm install
 npm run dev
@@ -49,4 +53,4 @@ npm run dev
 ## Credits
 
 Design and project brief by [Scrimba](https://scrimba.com)
-as part of the Frontend Developer Career Path.
+as part of the Full Stack Developer Course.
