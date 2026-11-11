@@ -1,3 +1,9 @@
+:root {
+  --color-accent: #0e805a;
+  --color-text-muted: #767676;
+  --color-focus: darkorange;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -74,7 +80,7 @@ body {
 .menu-item__description {
   font-size: 16px;
   line-height: 24px;
-  color: #8b8b8b;
+  color: var(--color-text-muted);
   font-weight: 400;
 }
 
@@ -99,7 +105,7 @@ body {
 }
 
 .menu-item__button:focus-visible {
-  outline: 2px solid darkorange;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -129,7 +135,7 @@ body {
 .order__remove {
   font-family: Verdana, sans-serif;
   font-size: 12px;
-  color: #bbbbbb;
+  color: var(--color-text-muted);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -139,12 +145,12 @@ body {
 
 .order__remove:hover,
 .order__remove:focus-visible {
-  color: darkorange;
+  color: var(--color-focus);
   transform: translateY(4px);
 }
 
 .order__remove:focus-visible {
-  outline: 2px solid darkorange;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -172,7 +178,7 @@ body {
   color: white;
   font-weight: 700;
   line-height: 24px;
-  background-color: #16db99;
+  background-color: var(--color-accent);
   border-radius: 3px;
   border: none;
   cursor: pointer;
@@ -184,7 +190,7 @@ body {
 }
 
 .order__complete-button:focus-visible {
-  outline: 2px solid darkorange;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -221,18 +227,18 @@ body {
 .modal__input {
   padding: 17px 0 14px 27px;
   border-radius: 4px;
-  border: 1.3px solid #757575;
+  border: 1.3px solid var(--color-text-muted);
   font-size: 20px;
   font-family: inherit;
 }
 
 .modal__input:focus-visible {
-  outline: 2px solid darkorange;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
 .modal__input::placeholder {
-  color: #757575;
+  color: var(--color-text-muted);
   font-size: 20px;
   font-weight: 400;
   line-height: 31px;
@@ -241,7 +247,7 @@ body {
 .modal__btn {
   margin: 47px 0 30px 0;
   padding: 17px 0 14px 0;
-  background-color: #16db99;
+  background-color: var(--color-accent);
   border: none;
   color: white;
   font-size: 20px;
@@ -256,7 +262,7 @@ body {
 }
 
 .modal__btn:focus-visible {
-  outline: 2px solid darkorange;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
