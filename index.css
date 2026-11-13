@@ -154,12 +154,14 @@ body {
   outline-offset: 2px;
 }
 
-.order__item {
+.order__item,
+.order__discount {
   display: flex;
   gap: 22px;
 }
 
-.order__price {
+.order__price,
+.order__discount-price {
   margin-left: auto;
 }
 

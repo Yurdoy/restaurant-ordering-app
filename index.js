@@ -1,9 +1,12 @@
-import { menuArray } from "./data.js";
+import { menuArray, mealDeal } from "./data.js";
 import addBtnUrl from "./images/add-btn.svg";
 
 const completeOrderSection = document.querySelector(".complete-order");
 const modal = document.querySelector(".modal");
 const modalForm = document.querySelector(".modal__form");
+const pizzaId = mealDeal.itemIds[0];
+const beerId = mealDeal.itemIds[1];
+const discountRate = mealDeal.discountPercent / 100;
 
 let orderArray = [];
 
@@ -68,7 +71,7 @@ function getMenuHtml() {
             <p class="menu-item__description">
               ${item.ingredients.join(", ")}
             </p>
-            <p class="menu-item__price">$${item.price}</p>
+            <p class="menu-item__price">${formatPrice(item.price)}</p>
           </div>
           <button class="menu-item__button" aria-label="Add ${item.name} to order" data-add="${item.id}">
             <img src="${addBtnUrl}" alt="" width="50" height="50" />
@@ -85,7 +88,7 @@ function getOrderHtml() {
      <li class="order__item">
        <p class="order__name">${item.name}</p>
        <button class="order__remove" aria-label="Remove ${item.name} from order" data-remove="${index}">remove</button>
-       <p class="order__price">$${item.price}</p>
+       <p class="order__price">${formatPrice(item.price)}</p>
      </li>
      `;
   });
@@ -96,14 +99,37 @@ function getTotalPrice() {
   return orderArray.reduce((acc, curr) => acc + curr.price, 0);
 }
 
+function getDiscount() {
+  const hasPizza = orderArray.some((item) => item.id === pizzaId);
+  const hasBeer = orderArray.some((item) => item.id === beerId);
+  if (!hasPizza || !hasBeer) {
+    return 0;
+  }
+
+  const pizzaPrice = menuArray.find((item) => item.id === pizzaId).price;
+  const beerPrice = menuArray.find((item) => item.id === beerId).price;
+
+  return (pizzaPrice + beerPrice) * discountRate;
+}
+
+function formatPrice(amount) {
+  return `$${amount.toFixed(2)}`;
+}
+
 function renderOrder() {
+  const discount = getDiscount();
+  document
+    .querySelector(".order__discount")
+    .classList.toggle("hidden", discount === 0);
+  document.querySelector(".order__discount-price").textContent =
+    `-${formatPrice(discount)}`;
   document
     .querySelector(".order")
     .classList.toggle("hidden", orderArray.length === 0);
   document.querySelector(".order__list").innerHTML = getOrderHtml();
 
   document.querySelector(".order__total-price").textContent =
-    "$" + getTotalPrice();
+    `$${(getTotalPrice() - discount).toFixed(2)}`;
 }
 
 function render() {

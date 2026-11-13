@@ -21,3 +21,8 @@ export const menuArray = [
     id: 2,
   },
 ];
+
+export const mealDeal = {
+  itemIds: [0, 2],
+  discountPercent: 15,
+};
