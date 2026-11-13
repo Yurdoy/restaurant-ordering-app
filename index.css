@@ -2,6 +2,14 @@
   --color-accent: #0e805a;
   --color-text-muted: #767676;
   --color-focus: darkorange;
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-border: #e5e5e5;
+  --color-border-strong: #393333;
+  --color-success-bg: #ecfdf5;
+  --color-success-text: #065f46;
+  --color-surface: #ffffff;
+  --color-on-accent: #ffffff;
 }
 
 * {
@@ -14,6 +22,8 @@ body {
   font-family: "Smythe", sans-serif;
   max-width: 600px;
   margin: 0 auto;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 .main {
@@ -52,7 +62,7 @@ body {
 .menu-item {
   display: flex;
   align-items: start;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--color-border);
   margin-top: 40px;
   padding: 5px 0 51px 0;
   gap: 31px;
@@ -170,14 +180,14 @@ body {
   justify-content: space-between;
   padding: 14px 0 39px 0;
   margin-top: 18px;
-  border-top: 2px solid #393333;
+  border-top: 2px solid var(--color-border-strong);
 }
 
 .order__complete-button {
   font-family: Verdana, sans-serif;
   padding: 18px;
   font-size: 16px;
-  color: white;
+  color: var(--color-on-accent);
   font-weight: 700;
   line-height: 24px;
   background-color: var(--color-accent);
@@ -201,7 +211,7 @@ body {
   flex-direction: column;
   position: fixed;
   width: min(524px, 90%);
-  background-color: #ffffff;
+  background-color: var(--color-surface);
   font-family: Verdana, sans-serif;
   top: 50%;
   left: 50%;
@@ -216,7 +226,7 @@ body {
   font-size: 24px;
   font-weight: 700;
   line-height: 31px;
-  color: #000000;
+  color: var(--color-text);
 }
 
 .modal__form {
@@ -232,6 +242,8 @@ body {
   border: 1.3px solid var(--color-text-muted);
   font-size: 20px;
   font-family: inherit;
+  background-color: var(--color-surface);
+  color: var(--color-text);
 }
 
 .modal__input:focus-visible {
@@ -251,7 +263,7 @@ body {
   padding: 17px 0 14px 0;
   background-color: var(--color-accent);
   border: none;
-  color: white;
+  color: var(--color-on-accent);
   font-size: 20px;
   font-weight: 700;
   line-height: 31px;
@@ -269,9 +281,9 @@ body {
 }
 
 .complete-order {
-  background-color: #ecfdf5;
+  background-color: var(--color-success-bg);
   text-align: center;
-  color: #065f46;
+  color: var(--color-success-text);
   font-size: 32px;
   font-weight: 400;
   line-height: 1.4;
