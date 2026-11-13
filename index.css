@@ -12,6 +12,16 @@
   --color-on-accent: #ffffff;
 }
 
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-surface: #1e1e1e;
+  --color-text: #f0f0f0;
+  --color-text-muted: #cdbfbf;
+  --color-border: #333;
+  --color-success-bg: #065f46;
+  --color-success-text: lightgreen;
+}
+
 * {
   margin: 0;
   padding: 0;
