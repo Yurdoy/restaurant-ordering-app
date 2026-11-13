@@ -22,6 +22,7 @@ and complete the order through a payment form with validation.
 - Keyboard accessible: visible focus styles, labelled buttons,
   screen-reader announcements
 - Lighthouse: Accessibility 100, Best Practices 100, SEO 100
+- Meal deal: pizza + beer in one order gives 15% off the pair
 
 ## Built with
 
@@ -40,6 +41,8 @@ and complete the order through a payment form with validation.
 - Used `classList.toggle()` with a condition to show or hide the order section based on the data, and learned when it doesn’t fit: the confirmation message depends on an event (payment), not on the data, so it needs explicit `add/remove`.
 - Handled the payment form with the `submit` event instead of a button click, so built-in validation (`required`, `pattern`) runs first; used `preventDefault()` to stop the page reload and `FormData` to read the customer’s name.
 - Made the app keyboard and screen-reader friendly: descriptive `aria-labels` on icon buttons, visible `:focus-visible` styles, visually hidden form labels, a `role="status"` confirmation message, and moving focus into the payment modal when it opens.
+- Moved the meal deal rules (item IDs and discount percent) into the data file, so the promo can change without touching the logic; used `some()` to check the order and an early `return` to keep the function flat.
+- Formatted all prices through a single `formatPrice()` helper with `toFixed(2)`.
 
 ## Running locally
 
