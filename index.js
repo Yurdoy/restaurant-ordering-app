@@ -25,6 +25,11 @@ document.addEventListener("click", function (e) {
   if (completeBtn) {
     handleCompleteOrder();
   }
+
+  const themeBtn = e.target.closest("[data-theme-toggle]");
+  if (themeBtn) {
+    handleThemeToggle(themeBtn);
+  }
 });
 
 modalForm.addEventListener("submit", function (e) {
@@ -59,6 +64,13 @@ function handlePayment(customerName) {
   completeOrderSection.classList.remove("hidden");
   completeOrderSection.textContent = `Thanks, ${customerName}! Your order is on its way!`;
   renderOrder();
+}
+
+function handleThemeToggle(themeBtn) {
+  const html = document.documentElement;
+  const isDark = html.getAttribute("data-theme") === "dark";
+  html.setAttribute("data-theme", isDark ? "light" : "dark");
+  themeBtn.setAttribute("aria-pressed", String(!isDark));
 }
 
 function getMenuHtml() {
@@ -128,8 +140,9 @@ function renderOrder() {
     .classList.toggle("hidden", orderArray.length === 0);
   document.querySelector(".order__list").innerHTML = getOrderHtml();
 
-  document.querySelector(".order__total-price").textContent =
-    `$${(getTotalPrice() - discount).toFixed(2)}`;
+  document.querySelector(".order__total-price").textContent = formatPrice(
+    getTotalPrice() - discount,
+  );
 }
 
 function render() {
