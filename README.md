@@ -23,6 +23,7 @@ and complete the order through a payment form with validation.
   screen-reader announcements
 - Lighthouse: Accessibility 100, Best Practices 100, SEO 100
 - Meal deal: pizza + beer in one order gives 15% off the pair
+- Light and dark theme toggle built on CSS custom properties
 
 ## Built with
 
@@ -43,6 +44,7 @@ and complete the order through a payment form with validation.
 - Made the app keyboard and screen-reader friendly: descriptive `aria-labels` on icon buttons, visible `:focus-visible` styles, visually hidden form labels, a `role="status"` confirmation message, and moving focus into the payment modal when it opens.
 - Moved the meal deal rules (item IDs and discount percent) into the data file, so the promo can change without touching the logic; used `some()` to check the order and an early `return` to keep the function flat.
 - Formatted all prices through a single `formatPrice()` helper with `toFixed(2)`.
+- Built a theme toggle where JS only switches a `data-theme` attribute on `<html>`; CSS custom properties and attribute selectors handle all colors and the icon, and `aria-pressed` tells screen readers the current state.
 
 ## Running locally
 
