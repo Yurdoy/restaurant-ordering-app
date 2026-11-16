@@ -24,6 +24,7 @@ and complete the order through a payment form with validation.
 - Lighthouse: Accessibility 100, Best Practices 100, SEO 100
 - Meal deal: pizza + beer in one order gives 15% off the pair
 - Light and dark theme toggle built on CSS custom properties
+- Rate your experience: accessible 5-star rating built on native radio buttons
 
 ## Built with
 
@@ -45,6 +46,7 @@ and complete the order through a payment form with validation.
 - Moved the meal deal rules (item IDs and discount percent) into the data file, so the promo can change without touching the logic; used `some()` to check the order and an early `return` to keep the function flat.
 - Formatted all prices through a single `formatPrice()` helper with `toFixed(2)`.
 - Built a theme toggle where JS only switches a `data-theme` attribute on `<html>`; CSS custom properties and attribute selectors handle all colors and the icon, and `aria-pressed` tells screen readers the current state.
+- Built the star rating on radio inputs inside a `fieldset`, so keyboard and screen-reader support come for free; used `:checked`, the `+` and `~` combinators and `:has()` to highlight stars with CSS only.
 
 ## Running locally
 
