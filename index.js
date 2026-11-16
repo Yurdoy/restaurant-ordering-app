@@ -1,12 +1,16 @@
 import { menuArray, mealDeal } from "./data.js";
 import addBtnUrl from "./images/add-btn.svg";
 
+const completeOrderMessage = document.querySelector(".complete-order__message");
 const completeOrderSection = document.querySelector(".complete-order");
 const modal = document.querySelector(".modal");
 const modalForm = document.querySelector(".modal__form");
 const pizzaId = mealDeal.itemIds[0];
 const beerId = mealDeal.itemIds[1];
 const discountRate = mealDeal.discountPercent / 100;
+const ratingFieldset = document.querySelector(".rating__fieldset");
+const ratingForm = document.querySelector(".rating");
+const ratingMessage = document.querySelector(".complete-order__rating-message");
 
 let orderArray = [];
 
@@ -38,6 +42,11 @@ modalForm.addEventListener("submit", function (e) {
   handlePayment(customerName);
 });
 
+ratingFieldset.addEventListener("change", function (e) {
+  const rating = e.target.value;
+  handleRating(rating);
+});
+
 function handleAddClick(id) {
   const menuItemId = Number(id);
   const menuItem = menuArray.find((item) => item.id === menuItemId);
@@ -62,7 +71,9 @@ function handlePayment(customerName) {
   modal.classList.add("hidden");
   modalForm.reset();
   completeOrderSection.classList.remove("hidden");
-  completeOrderSection.textContent = `Thanks, ${customerName}! Your order is on its way!`;
+  completeOrderMessage.textContent = `Thanks, ${customerName}! Your order is on its way!`;
+  ratingMessage.classList.add("hidden");
+  ratingForm.reset();
   renderOrder();
 }
 
@@ -71,6 +82,11 @@ function handleThemeToggle(themeBtn) {
   const isDark = html.getAttribute("data-theme") === "dark";
   html.setAttribute("data-theme", isDark ? "light" : "dark");
   themeBtn.setAttribute("aria-pressed", String(!isDark));
+}
+
+function handleRating(rating) {
+  ratingMessage.classList.remove("hidden");
+  ratingMessage.textContent = `Thanks for rating us ${rating}/5!`;
 }
 
 function getMenuHtml() {

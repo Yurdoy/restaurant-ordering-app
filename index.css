@@ -10,6 +10,7 @@
   --color-success-text: #065f46;
   --color-surface: #ffffff;
   --color-on-accent: #ffffff;
+  --color-rating: #8f6805;
 }
 
 [data-theme="dark"] {
@@ -20,6 +21,7 @@
   --color-border: #333;
   --color-success-bg: #065f46;
   --color-success-text: lightgreen;
+  --color-rating: rgb(240, 206, 10);
 }
 
 * {
@@ -325,7 +327,7 @@ body {
   outline-offset: 2px;
 }
 
-.complete-order {
+.complete-order__message {
   background-color: var(--color-success-bg);
   text-align: center;
   color: var(--color-success-text);
@@ -334,6 +336,38 @@ body {
   line-height: 1.4;
   margin-top: 45px;
   padding: 51px 0;
+}
+
+.rating__fieldset {
+  margin: 30px 0 0 0;
+  padding: 10px;
+  border: none;
+  text-align: center;
+  font-size: 30px;
+}
+
+.rating__label {
+  font-size: 30px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.rating__input:checked + .rating__label {
+  color: var(--color-rating);
+}
+
+.rating__input:focus-visible + .rating__label {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.rating__label:has(~ .rating__input:checked) {
+  color: var(--color-rating);
+}
+
+.complete-order__rating-message {
+  text-align: center;
+  font-size: 25px;
 }
 
 @media (width <= 395px) {
